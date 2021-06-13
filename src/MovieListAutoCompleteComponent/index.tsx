@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import { TextField } from "@material-ui/core";
+import { Grid, TextField } from "@material-ui/core";
 import {
   getArrayOneList,
   getArrayTwoList,
@@ -40,38 +40,41 @@ const MovieListAutoCompleteComponent = () => {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "flex-start" }}>
-      <Autocomplete
-        id="input-one"
-        options={optionForInputOne}
-        getOptionLabel={(option) => option.title}
-        style={{ width: 300, margin: 10 }}
-        onChange={(event, value) => handleOnChange("input-one", event, value)}
-        renderInput={(params) => (
-          <TextField {...params} label="Input One" variant="outlined" />
-        )}
-      />
-      <Autocomplete
-        id="input-two"
-        options={optionForInputTwo}
-        getOptionLabel={(option) => option.title}
-        style={{ width: 300, margin: 10 }}
-        onChange={(event, value) => handleOnChange("input-two", event, value)}
-        renderInput={(params) => (
-          <TextField {...params} label="Input Two" variant="outlined" />
-        )}
-      />
-      <Autocomplete
-        id="input-three"
-        options={optionForInputThree}
-        getOptionLabel={(option) => option.title}
-        style={{ width: 300, margin: 10 }}
-        onChange={(event, value) => handleOnChange("input-three", event, value)}
-        renderInput={(params) => (
-          <TextField {...params} label="Input Three" variant="outlined" />
-        )}
-      />
-    </div>
+    <Grid container spacing={2}>
+       <Grid item xs={12}>
+        <Autocomplete
+          id="input-one"
+          options={optionForInputOne}
+          getOptionLabel={(option) => option.title}
+          onChange={(event, value) => handleOnChange("input-one", event, value)}
+          renderInput={(params) => (
+            <TextField {...params} label="Input One" variant="outlined" />
+          )}
+        />
+       </Grid>
+       <Grid item xs={12}>
+        <Autocomplete
+          id="input-two"
+          options={optionForInputTwo}
+          getOptionLabel={(option) => option.title}
+          onChange={(event, value) => handleOnChange("input-two", event, value)}
+          renderInput={(params) => (
+            <TextField {...params} label="Input Two" variant="outlined" />
+          )}
+        />
+       </Grid>
+       <Grid item xs={12}>  
+        <Autocomplete
+          id="input-three"
+          options={optionForInputThree}
+          getOptionLabel={(option) => option.title}
+          onChange={(event, value) => handleOnChange("input-three", event, value)}
+          renderInput={(params) => (
+            <TextField {...params} label="Input Three" variant="outlined" />
+          )}
+        />
+       </Grid>
+    </Grid>
   );
 };
 
